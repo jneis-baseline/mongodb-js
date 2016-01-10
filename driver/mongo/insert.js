@@ -1,4 +1,4 @@
-var insert = function(db, callback) {
+exports.insert = function(db, callback) {
     db.collection('restaurants').insertOne({
         "address" : {
             "street" : "2 Avenue",
@@ -25,13 +25,5 @@ var insert = function(db, callback) {
     }, function(err, result) {
         console.log('Inserted document');
         callback(result);
-    });
-};
-
-module.exports = function(client, url) {
-    client.connect(url, function(err, db) {
-        insert(db, function() {
-            db.close();
-        });
     });
 };

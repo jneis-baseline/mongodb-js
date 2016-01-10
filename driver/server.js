@@ -1,16 +1,4 @@
-var express = require('express');
-var app = express();
+var client = require('mongodb').MongoClient;
+var url = 'mongodb://db:27017/test';
 
-var db = require('./mongo/mongo');
-
-db.insert();
-
-app.route('/restaurants')
-    
-    .get(function(request, response) {
-        response.json({
-            message: 'hello'
-        });
-    });
-
-app.listen(3000);
+require('./mongo/findall')(client, url);

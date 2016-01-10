@@ -22,3 +22,7 @@ exports.findByEmbeddedField = function(db, callback) {
 exports.findByFieldInArray = function(db, callback) {
     find(db, {"grades.grade": "B"}, callback)
 };
+
+exports.findGreaterThan = function(db, callback) {
+    find(db, {"grades.score": {$gt: 83}}, callback);
+};

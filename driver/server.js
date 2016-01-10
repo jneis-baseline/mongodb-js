@@ -4,7 +4,7 @@ var url = 'mongodb://db:27017/test';
 var mongo = require('./mongo/find');
 
 client.connect(url, function(err, db) {
-    mongo.findByField(db, function() {
+    mongo.findGreaterThan(db, function() {
         db.close();
     });
 });

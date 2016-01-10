@@ -1,0 +1,8 @@
+{
+  "name": "node-driver-hack",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.1.3"
+  }
+}

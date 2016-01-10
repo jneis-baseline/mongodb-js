@@ -1,14 +1,17 @@
 var output = require('./cursor.output');
 
-var findAll = function(db, callback) {
-    var cursor = db.collection('restaurants').find();
+var findByEmbeddedField = function(db, callback) {
+    var cursor = db.collection('restaurants')
+        .find({
+            "address.zipcode": "10075"
+        });
 
     output(cursor, callback);
 };
 
 module.exports = function(client, url) {
     client.connect(url, function(err, db) {
-        findAll(db, function() {
+        findByEmbeddedField(db, function() {
             db.close();
         });
     });

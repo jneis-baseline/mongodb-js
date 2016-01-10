@@ -1,4 +1,4 @@
-var output = require('./cursor.each');
+var output = require('./cursor.output');
 
 var findByField = function(db, callback) {
     var cursor = db.collection('restaurants')

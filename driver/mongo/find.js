@@ -1,8 +1,7 @@
 var output = require('./cursor.output');
 
 var find = function(db, condition, callback) {
-    var cursor = db.collection('restaurants')
-        .find(condition);
+    var cursor = db.collection('restaurants').find(condition);
 
     output(cursor, callback);
 };
@@ -25,4 +24,12 @@ exports.findByFieldInArray = function(db, callback) {
 
 exports.findGreaterThan = function(db, callback) {
     find(db, {"grades.score": {$gt: 83}}, callback);
+};
+
+exports.findAnd = function(db, callback) {
+    find(db, {"cuisine": "Italian", "address.zipcode": "10075"}, callback);
+};
+
+exports.findOr = function(db, callback) {
+    find(db, {$or: [{"cuisine": "Italian"}, {"address.zipcode": "10075"}]}, callback);
 };

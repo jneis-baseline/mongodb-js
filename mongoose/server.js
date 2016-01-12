@@ -8,3 +8,9 @@ mongoose.connect(url, function(err) {
         console.log('connected');        
     }
 });
+
+var madMax = require('./data/mad-max-fury-road');
+var Movie = require('./model/movie');
+
+// instances of models are docs
+var some = new Movie(madMax);

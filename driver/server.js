@@ -1,10 +1,10 @@
 var client = require('mongodb').MongoClient;
 var url = 'mongodb://db:27017/test';
 
-var mongo = require('./mongo/aggregate');
+var mongo = require('./mongo/indexes');
 
 client.connect(url, function(err, db) {
-    mongo.filterAndGroup(db, function() {
+    mongo.indexFields(db, function() {
         db.close();
     });
 });

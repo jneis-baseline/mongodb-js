@@ -1,0 +1,7 @@
+{
+  "name": "mongoose-hack",
+  "version": "1.0.0",
+  "dependencies": {
+    "mongoose": "^4.3.5"
+  }
+}

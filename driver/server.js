@@ -1,10 +1,10 @@
 var client = require('mongodb').MongoClient;
 var url = 'mongodb://db:27017/test';
 
-var mongo = require('./mongo/update');
+var mongo = require('./mongo/delete');
 
 client.connect(url, function(err, db) {
-    mongo.replace(db, function() {
+    mongo.delete(db, function() {
         db.close();
     });
 });

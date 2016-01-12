@@ -1,10 +1,10 @@
 var client = require('mongodb').MongoClient;
 var url = 'mongodb://db:27017/test';
 
-var mongo = require('./mongo/delete');
+var mongo = require('./mongo/aggregate');
 
 client.connect(url, function(err, db) {
-    mongo.delete(db, function() {
+    mongo.filterAndGroup(db, function() {
         db.close();
     });
 });

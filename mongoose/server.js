@@ -14,3 +14,11 @@ var Movie = require('./model/movie');
 
 // instances of models are docs
 var some = new Movie(madMax);
+
+some.findSimilar(function(err, movies) {
+    console.dir(movies);
+});
+
+Movie.findByTitle('Mad Max: Fury Road', function(err, movies) {
+    console.dir(movies);
+});

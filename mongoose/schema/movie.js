@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // each schema maps to a mongo collection and defines the shape of the docs
-module.exports = new Schema({
+var movieSchema = new Schema({
     title: String,
     genre: String,
     direction: String,
@@ -21,3 +21,9 @@ module.exports = new Schema({
         rating: Number
     }
 });
+
+movieSchema.statics.findByTitle = function(text, callback) {
+    return this.find({title: new RegExp(text, 'i')}, callback);
+};
+
+module.exports = movieSchema;

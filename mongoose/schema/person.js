@@ -4,8 +4,10 @@ var Schema = mongoose.Schema;
 var personSchema = new Schema({
     name: {
         first: String,
-        last: String
-    }
+        last: String,
+    },
+    occupation: String,
+    age: Number
 });
 
 personSchema.virtual('name.full').get(function() {

@@ -31,7 +31,7 @@ var options = {
 
     typeKey: '$type',       // changes keyword for schema type declaration, in order to use 'type' as key
 
-    validationBeforeSave: false, // skip default validation before saving doc (allows to save invalid docs)
+    validationBeforeSave: false // skip default validation before saving doc (allows to save invalid docs)   
 };
 
 var schema = new Schema({

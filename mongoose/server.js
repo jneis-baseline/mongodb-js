@@ -1,24 +1,39 @@
 var mongoose = require('mongoose');
-var url = 'mongodb://db:27017/test';
+mongoose.connect('mongodb://db:27017/test');
 
-mongoose.connect(url, function(err) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('connected');        
-    }
+var blogSchema = require('./schema/blog');
+
+//console.log('blog schema:', blogSchema);
+
+var Animal = require('./model/animal');
+var dog = new Animal({name: 'cujo', type: 'dog'});
+
+//dog.save();
+
+dog.findSimilarTypes(function(err, dogs) {
+    console.log('animals of similar type:', dogs);
 });
 
-var madMax = require('./data/mad-max-fury-road');
-var Movie = require('./model/movie');
-
-// instances of models are docs
-var some = new Movie(madMax);
-
-some.findSimilar(function(err, movies) {
-    console.dir(movies);
+Animal.findByName('cujo', function(err, animals) {
+    console.log('animals of same name:', animals);
 });
 
-Movie.findByTitle('Mad Max: Fury Road', function(err, movies) {
-    console.dir(movies);
+var Person = require('./model/person');
+var bad = new Person({name: {first: 'Walter', last: 'White'}});
+
+//bad.save();
+
+Person.findOne({'name.first': 'Walter'}, function(err, person) {
+    console.log('accessing virtuals:', person.name.full);
+});
+
+var schema = require('./schema/options');
+var Any = mongoose.model('Any', schema);
+var any = new Any({field: {subfield: 'value'}});
+
+//any.save();
+
+Any.findOne({'field.subfield': 'value'}, function(err, result) {     
+    // id undefined due to schema options 'id: false'
+    console.log('accessing id:', result.id);
 });

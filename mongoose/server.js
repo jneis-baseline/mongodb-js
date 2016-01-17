@@ -1,5 +1,14 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://db:27017/test');
+var uri = 'mongodb://db:27017/test';
+var options = {
+    db: {native_parser: true},
+    server: {poolSize: 5},
+    replset: {rs_name: 'replicaSetName'},
+    // user: 'username',  // for authentication
+    // pass: 'password'
+};
+
+mongoose.connect(uri, options);
 
 //require('./instance/blog')();
 //require('./instance/animal')();
@@ -8,4 +17,5 @@ mongoose.connect('mongodb://db:27017/test');
 //require('./instance/types')();
 //require('./instance/tank')();
 //require('./instance/parent')();
-require('./instance/user')();
+//require('./instance/user')();
+require('./instance/population')();

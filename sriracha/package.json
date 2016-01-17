@@ -1,0 +1,10 @@
+{
+  "name": "sriracha-hack",
+  "description": "exploring sriracha admin for mongoose and express",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.3.5",
+    "sriracha-admin": "0.0.3"
+  }
+}

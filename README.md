@@ -1,2 +1,2 @@
-# mongo-sandbox
-sandbox for experimenting with node.js &amp; mongo integration
+# mongo-hack
+sandbox for experimenting with node.js &amp; mongo DB integration code

@@ -1,2 +1,4 @@
-# mongo-hack
-sandbox for experimenting with node.js &amp; mongo DB integration code
+# hack-mongodb
+hacking mongo database
+
+powered by node.js & mongoose
